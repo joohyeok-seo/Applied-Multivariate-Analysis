@@ -1,0 +1,34 @@
+---
+title: "A2_Q5"
+author: "Joohyeok"
+date: "2024-02-16"
+output: html_document
+---
+
+```{r setup, include=TRUE}
+library(ggplot2)
+library(GGally)
+
+
+data <- read.csv("pr2_second_data_set.txt", header=FALSE)
+
+colnames(data) <- c("A", "B", "C", "D", "E")
+
+```
+
+a) Display a matrix scatter plot
+```{r}
+ggpairs(data,colums=c("A","B","C","D","E"),
+        lower=list(continuous = wrap("points", color = "blue")))+
+  theme_bw()+
+  theme(strip.text=element_text(size=12))
+
+```
+
+b)
+The correlation between A and B is 0.962. It indicates a strong positive linear relationship which is seem in second row first column plot. Since this value is close to 1, there is a strong dependency.
+The correlation between C and D is 0.497. It indicates positive linear relationship which is seem in fourth row third column plot. We can say this plot is dependency. 
+
+
+
+

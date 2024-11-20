@@ -1,0 +1,125 @@
+---
+title: "A2_Q4"
+author: "Joohyeok"
+date: "2024-02-16"
+output: html_document
+---
+
+```{r setup, include=TRUE}
+library(readxl) 
+library(ggplot2)
+library(GGally)
+library(dplyr)
+library(tidyverse)
+
+X <- read_excel("Forbes-ten-companies.xlsx")
+X
+```
+
+a) Produce a matrix scatter plot for X
+```{r}
+ggpairs(X[,-1],colums=c("Sales (billions)","Profit (Billions)","Assets (Billions)"),
+        lower=list(continuous = wrap("points", color = "blue")))+
+  theme_bw()+
+  theme(strip.text=element_text(size=12))
+```
+
+b) Produce a boxplot for X.
+```{r}
+boxplot(X[, -1], col = c("red","orange","yellow"), main="Boxplot for X", xlab="Variables", ylab="Values", names=c("Sales", "Profit", "Assets"))
+
+```
+
+c)  Scale can be an issue when calculating covariance. Covariance measures the direction and strength of the relationship between two variables, but it depends on the units of the variables, making direct comparison problematic if their scales differ. Therefore, standardizing variables is important when they are measured in different units, allowing for accurate comparison in the same units. In summary, not properly adjusting for scale differences can significantly impact the accuracy and usefulness of analysis results.
+
+d)
+```{r}
+sapply(X[, c("Sales (billions)", "Profit (Billions)", "Assets (Billions)")], mean)
+
+sapply(X[, c("Sales (billions)", "Profit (Billions)", "Assets (Billions)")], var)
+
+cor(X[, c("Sales (billions)", "Profit (Billions)", "Assets (Billions)")])
+
+```
+Mean (x)
+
+- Sales(billions): 155.6
+- Profit(billions): 14.7
+- Assets(billions): 710.9
+
+Sample Variance (S)
+
+- Sales(billions): 7476.45
+- Profit(billions): 26.19
+- Assets(billions): 237054.27
+
+Correlation Matrix (R)
+    
+- Correlation between Sales and Profit: 0.686
+- Correlation between Sales and Assets: -0.845
+- Correlation between Assets and Profit: -0.423
+
+e) Compute and display the standardized data matrix X*
+```{r}
+stand <- function(x) {
+  (x - mean(x)) / sd(x)
+}
+
+Xsd<-as.data.frame(lapply(X[, -1], stand)) 
+Xsd
+
+```
+
+f) Produce a boxplot for X*
+```{r}
+boxplot(Xsd, col = c("red","orange","yellow"), main="Boxplot for X*", xlab="Variables", ylab="Values", names=c("Sales", "Profit", "Assets"))
+
+```
+
+  -The standardization process adjusts the mean of all variables to 0 and their standard deviation to 1. This matches the scale of each variable, facilitating comparison between variables. Therefore, the boxplot for X* shows that all variables are on the same scale, indicating that we have solved the scale problem.
+In conclusion, the boxplot for X* indicates that the scale problem does not exist for X*. Because all variables are standardized and have the same scale, this allows for fair comparisons between variables in the analysis.
+
+g)
+```{r}
+sapply(Xsd, mean)
+
+sapply(Xsd, var)
+
+cor(Xsd)
+
+```
+Mean of X*
+
+- Sales(billions): -5.97e^(-17)
+- Profit(billions): -1.39e^(-16)
+- Assets(billions): -1.28e^(-16)
+All mean of X* is almost 0.
+
+Sample Variance (S*)
+
+- Sales(billions): 1
+- Profit(billions): 1
+- Assets(billions): 1
+All variance of X* is 1.
+
+Correlation Matrix (R*)
+    
+- Correlation between Sales and Profit: 0.686
+- Correlation between Sales and Assets: -0.845
+- Correlation between Assets and Profit: -0.423
+R and R* is the same.
+
+
+h) There is an expected relationship between R and S**.
+  The standardization process does not change the correlation between variables, and R is the same before and after standardization. S* will be 1 for all variables, but this will not change the value of R. Therefore, there is no direct relationship between R and S*, and the standardization process does not affect R.
+
+
+i) R* and S* have the expected relationship. Standardization preserves the correlation between variables, with R* equaling the original correlation matrix, R. S* being 1 for all variables indicates that standardization scales all variables to the same scale. R* and S* reflect the correlation between variables and the standardized scale, respectively, ensuring that the correlation is maintained through standardization.
+
+
+
+
+
+
+
+

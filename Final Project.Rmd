@@ -1,0 +1,162 @@
+---
+title: "Final Project"
+author: "Joohyeok"
+date: "2024-04-16"
+output: html_document
+---
+
+```{r setup, include=TRUE}
+library(readxl)
+library(ggplot2)
+library(GGally)
+library(corrplot)
+library(psych)
+
+data <- read_excel("Assignment8_data.xlsx", col_names = c("X1", "X2", "Y1", "Y2"))
+data
+
+```
+
+a) Initial investigation
+```{r}
+summary(data)
+
+ggpairs(data,lower=list(continuous = wrap("points", color = "blue", size = 1)),
+        diag = list(continuous = "barDiag"))+
+  theme_bw()+
+  theme(strip.text=element_text(size=12))
+
+boxplot(data, 
+        main = "Boxplot of Plant Part Lengths",
+        names = c("X1", "X2", "Y1", "Y2"),
+        ylab = "Length")
+
+```
+
+b) ---For the X group---
+i) Display the relevant sample covariance matrix S
+```{r}
+xvalue<- data[, 1:2]  
+xvalue
+cov(xvalue, use="complete.obs")
+
+```
+
+ii) List the eigenvalues and describe the percent contributions to the variance
+```{r}
+eigen_result<-eigen(cov(xvalue, use="complete.obs"))
+
+eigenvalues <- eigen_result$values
+
+total <- sum(eigenvalues)
+
+percent_variance <- eigenvalues / total * 100
+
+eigenvalues
+percent_variance
+
+```
+
+(iv) Give the eigenvectors for the principal components you retain
+```{r}
+eigenvectors <- eigen_result$vectors
+
+eigenvectors
+
+```
+
+(vi) Display scatter plots of pairs of principal components
+```{r}
+first_pca_result <- prcomp(xvalue, scale. = FALSE)
+
+plot(first_pca_result$x[, 1], first_pca_result$x[, 2], 
+     xlab="First Principal Component", ylab="Second Principal Component")
+
+```
+
+c) ---For the Y group---
+(i) Display the relevant sample covariance matrix S
+```{r}
+Yvalue<- data[, 3:4]  
+Yvalue
+cov(Yvalue, use="complete.obs")
+
+```
+
+(ii) List the eigenvalues and describe the percent contributions to the variance
+```{r}
+eigen_Yvalue<-eigen(cov(Yvalue, use="complete.obs"))
+eigenvalues_Yvalue <- eigen_Yvalue$values
+
+total_Y <- sum(eigenvalues_Yvalue)
+
+percent_variance_Y <- eigenvalues_Yvalue / total_Y * 100
+
+eigenvalues_Yvalue
+percent_variance_Y
+
+```
+
+(iv) Give the eigenvectors for the principal components you retain
+```{r}
+eigenvectors_Y <- eigen_Yvalue$vectors
+
+eigenvectors_Y
+
+```
+
+(vi) Display scatter plots of pairs of principal components
+```{r}
+pca_result_Y <- prcomp(Yvalue, scale. = FALSE)
+
+plot(pca_result_Y$x[, 1], pca_result_Y$x[, 2], 
+     xlab="First Principal Component", ylab="Second Principal Component")
+
+```
+
+d) For the Entire Dataset 
+(i) Display the relevant sample covariance matrix S
+```{r}
+data1 <- read_excel("Assignment8_data.xlsx", col_names = c("X1", "X2", "X3", "X4"))
+
+xx <- data1[, 1:2]
+yy <- data1[, 3:4]
+colnames(yy) <- c("X1", "X2")
+
+entire <- rbind(xx, yy)
+entire
+cov(entire, use="complete.obs")
+
+```
+
+(ii) List the eigenvalues and describe the percent contributions to the variance
+```{r}
+eigen_entire<-eigen(cov(entire, use="complete.obs"))
+eigen_entire
+eigenvalues_entire <- eigen_entire$values
+
+total_entire <- sum(eigenvalues_entire)
+
+percent_variance_entire <- eigenvalues_entire / total_entire * 100
+
+eigenvalues_entire
+percent_variance_entire
+
+```
+
+(iv) Give the eigenvectors for the principal components you retain
+```{r}
+eigenvectors <- eigen_entire$vectors
+
+eigenvectors
+
+```
+
+(vi) Display scatter plots of pairs of principal components
+```{r}
+pca_result_entire <- prcomp(entire, scale. = FALSE)
+
+plot(pca_result_entire$x[, 1], pca_result_entire$x[, 2], 
+     xlab="First Principal Component", ylab="Second Principal Component")
+
+```
