@@ -88,7 +88,16 @@ All R Markdown files for analysis are located in the [`r_code/`](./r_code/) fold
 - [`project1_q2.Rmd`](./r_code/project1_q2.Rmd)
 - [`project2_q1.Rmd`](./r_code/project2_q1.Rmd)
 - [`project2_q2.Rmd`](./r_code/project2_q2.Rmd)
-- ...
+- [`project2_q3.Rmd`](./r_code/project2_q3.Rmd)
+- [`project2_q4.Rmd`](./r_code/project2_q4.Rmd)
+- [`project2_q5.Rmd`](./r_code/project2_q5.Rmd)
+- [`project3_q1.Rmd`](./r_code/project3_q1.Rmd)
+- [`project3_q2.Rmd`](./r_code/project3_q2.Rmd)
+- [`project3_q3.Rmd`](./r_code/project3_q3.Rmd)
+- [`project4_q1.Rmd`](./r_code/project4_q1.Rmd)
+- [`project4_q2.Rmd`](./r_code/project4_q2.Rmd)
+- [`project4_q3.Rmd`](./r_code/project4_q3.Rmd)
+- [`project5.Rmd`](./r_code/project5.Rmd)
 - [`Final Project.Rmd`](./r_code/Final%20Project.Rmd)
 
 ---
