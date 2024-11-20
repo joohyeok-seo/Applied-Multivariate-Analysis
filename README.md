@@ -106,7 +106,9 @@ All R Markdown files for analysis are located in the [`r_code/`](./r_code/) fold
 All problem statement files are located in the [`problems/`](./problems/) folder:
 - [`project1_problems.pdf`](./problems/project1_problems.pdf)
 - [`project2_problems.pdf`](./problems/project2_problems.pdf)
-- ...
+- [`project3_problems.pdf`](./problems/project3_problems.pdf)
+- [`project4_problems.pdf`](./problems/project4_problems.pdf)
+- [`project5_problems.pdf`](./problems/project5_problems.pdf)
 - [`final_project_problems.pdf`](./problems/final_project_problems.pdf)
 
 ---
@@ -115,7 +117,9 @@ All problem statement files are located in the [`problems/`](./problems/) folder
 All solution reports are located in the [`solutions/`](./solutions/) folder:
 - [`project1_solution.pdf`](./solutions/project1_solution.pdf)
 - [`project2_solution.pdf`](./solutions/project2_solution.pdf)
-- ...
+- [`project3_solution.pdf`](./solutions/project3_solution.pdf)
+- [`project4_solution.pdf`](./solutions/project4_solution.pdf)
+- [`project5_solution.pdf`](./solutions/project5_solution.pdf)
 - [`final_project_solution.pdf`](./solutions/final_project_solution.pdf)
 
 ---
