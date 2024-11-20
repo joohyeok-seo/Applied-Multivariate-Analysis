@@ -80,11 +80,34 @@ The following tools and libraries were used for the projects:
 ---
 
 ## Resources
-All relevant code files and reports are located in the [`resources/`](./resources/) folder:
-- R Scripts: 
-  - Project1_code.R, Project2_code.R, ..., FinalProject_code.R
-- Reports:
-  - Project1_results.pdf, ..., FinalProject_report.pdf
+All relevant code files, problem statements, and solution reports are organized into the following folders:
+
+### **1. R Scripts**
+All R Markdown files for analysis are located in the [`r_code/`](./r_code/) folder:
+- [`project1_q1.Rmd`](./r_code/project1_q1.Rmd)
+- [`project1_q2.Rmd`](./r_code/project1_q2.Rmd)
+- [`project2_q1.Rmd`](./r_code/project2_q1.Rmd)
+- [`project2_q2.Rmd`](./r_code/project2_q2.Rmd)
+- ...
+- [`Final Project.Rmd`](./r_code/Final%20Project.Rmd)
+
+---
+
+### **2. Problem Statements**
+All problem statement files are located in the [`problems/`](./problems/) folder:
+- [`project1_problems.pdf`](./problems/project1_problems.pdf)
+- [`project2_problems.pdf`](./problems/project2_problems.pdf)
+- ...
+- [`final_project_problems.pdf`](./problems/final_project_problems.pdf)
+
+---
+
+### **3. Solution Reports**
+All solution reports are located in the [`solutions/`](./solutions/) folder:
+- [`project1_solution.pdf`](./solutions/project1_solution.pdf)
+- [`project2_solution.pdf`](./solutions/project2_solution.pdf)
+- ...
+- [`final_project_solution.pdf`](./solutions/final_project_solution.pdf)
 
 ---
 
