@@ -1,0 +1,50 @@
+---
+title: "Q2_Final"
+author: "Joohyeok"
+date: "2024-02-09"
+output: html_document
+---
+
+```{r setup, include=TRUE}
+library(ggplot2)
+library(GGally)
+library(readr)
+
+data=read.table("baker_corn_field_data.txt")
+
+colnames(data) <- LETTERS[1:ncol(data)]
+
+corn<-data[,c("B","C","G","H")]
+
+Color<-as.factor(corn$B)
+
+colors <- c("red", "orange", "yellow", "green", "blue", "cyan", "pink", "brown")
+
+```
+
+a) create a 3x3 matrix scatter plot
+```{r}
+ggpairs(corn[,c("C","G","H")],mapping = aes(color = Color),legend=4,
+        diag = list(continuous = "barDiag"))+
+  ggtitle("Matrix Scatter Plot for Corn Field Data")+
+  theme(plot.title=element_text(hjust=0.5))+
+  scale_color_manual(values = colors)
+
+```
+
+b) List groups that appear to be relatively more tightly clustered than other groups
+
+- A correlation value close to 1 or -1 indicates a strong clustering of points
+
+- C vs G plot is 2 row 1 column. Group 1, 3 and 7 looks clustered than other groups
+- C vs H plot is 3 row 1 column. Group 6 and 7 looks clustered than other groups
+- G vs H plot is 3 row 2 column. Group 7 looks clustered than other groups.
+
+c) List groups that appear to be relatively widely dispersed
+
+- A correlation value close to 0 indicates that the points are widely dispersed
+
+- C vs G plot is 2 row 1 column. Group 5 and 6 looks widely dispersed
+- C vs H plot is 3 row 1 column. Group 1 looks widely dispersed
+- G vs H plot is 3 row 2 column. Group 3 and 8 looks widely dispersed
+

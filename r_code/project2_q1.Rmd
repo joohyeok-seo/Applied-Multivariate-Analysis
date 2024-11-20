@@ -1,0 +1,124 @@
+---
+title: "A2_Q1"
+author: "Joohyeok"
+date: "2024-02-21"
+output: html_document
+---
+
+```{r setup, include=TRUE}
+library(readxl) 
+library(ggplot2)
+library(GGally)
+library(dplyr)
+library(tidyverse)
+
+data=read.table("lumber.txt",header=FALSE)
+colnames(data) <- c("stiffness1","stiffness2","stiffness3","stiffness4")
+
+```
+
+a) Display a matrix scatter plot.
+```{r}
+ggpairs(data[,c("stiffness1","stiffness2","stiffness3","stiffness4")])
+
+```
+
+b) Based on this graph, the correlation coefficients are all very high, above 0.7. These high correlation coefficients indicate that each variable has a strong linear relationship with the other variables, so the data matrix is not full rank.
+
+c) 
+Mean of x
+```{r}
+colMeans(data)
+```
+
+Sx
+```{r}
+cov(data)
+```
+
+Rx
+```{r}
+cor(data)
+
+```
+
+d) Find the matrix A (by hand) such that Y = AX and display
+```{r}
+A<-matrix(c(2,1,0,0,0,1,0,0,-3,1,4,2,0,0,0,-2),ncol=4,byrow=FALSE)
+A
+X <- as.matrix(data[, c("stiffness1", "stiffness2", "stiffness3", "stiffness4")])
+
+Y<-t(A%*%t(X))
+Y
+
+```
+
+e)
+display Y
+```{r}
+Y
+```
+
+Mean of Y
+```{r}
+colMeans(Y)
+```
+
+Sy
+```{r}
+cov(Y)
+```
+
+Ry
+```{r}
+cor(Y)
+
+```
+
+```{r}
+library(readxl) 
+library(ggplot2)
+library(GGally)
+library(dplyr)
+library(tidyverse)
+
+data=read.table("lumber.txt",header=FALSE)
+colnames(data) <- c("stiffness1","stiffness2","stiffness3","stiffness4")
+
+#a) Display a matrix scatter plot.
+ggpairs(data[,c("stiffness1","stiffness2","stiffness3","stiffness4")])
+
+#c) 
+#Mean of x
+colMeans(data)
+
+#Sx
+cov(data)
+
+#Rx
+cor(data)
+
+#d) Find the matrix A (by hand) such that Y = AX and display
+A<-matrix(c(2,1,0,0,0,1,0,0,-3,1,4,2,0,0,0,-2),ncol=4,byrow=FALSE)
+A
+X <- as.matrix(data[, c("stiffness1", "stiffness2", "stiffness3", "stiffness4")])
+
+Y<-t(A%*%t(X))
+Y
+
+#e)
+#display Y
+Y
+
+#Mean of Y
+colMeans(Y)
+
+#Sy
+cov(Y)
+
+
+#Ry
+cor(Y)
+
+```
+

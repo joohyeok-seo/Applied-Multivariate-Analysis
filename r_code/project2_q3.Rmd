@@ -1,0 +1,80 @@
+---
+title: "A2_Q3"
+author: "Joohyeok"
+date: "2024-02-21"
+output: html_document
+---
+
+```{r setup, include=TRUE}
+library(readxl) 
+library(ggplot2)
+library(GGally)
+library(dplyr)
+library(tidyverse)
+
+X <- read_excel("w-nat-track-rec.xlsx",col_names=FALSE)
+
+```
+
+a) Construct Y by eliminating the first column of X and display
+```{r}
+
+Y<-X[,-1]
+
+Y
+
+```
+
+b) Set R = corr(Y) and display
+```{r}
+R<-cor(Y)
+R
+
+```
+
+c) Compute det(R) and display
+```{r}
+det_R<-det(R)
+det_R
+
+```
+- det(R) indicates important about R. det(R) is not zero which means invertible.
+
+d)
+```{r}
+b<-matrix(c(1,3,1,2,-1,1,-2), nrow=7,ncol=1)
+b
+
+x<-solve(R,b)
+x
+
+```
+
+e) Compute the norm
+```{r}
+Rx <- R %*% x
+Rx
+norm(Rx - b, type="2") 
+
+```
+- The calculated norm value of 2.75e^(-14)is as expected. It is very small value which means the x is very accurate and that Rx substantially matches the given vector..
+
+f) Compute w
+```{r}
+z<-matrix(c(1,-1,-1,-1,0,2,1), nrow=7,ncol=1)
+z
+w<-R%*%R%*%R%*%R%*%R%*%z
+w
+
+```
+
+g) Compute the projection of z on w
+```{r}
+projection <- function(a, b) {
+  (sum(a * b) / sum(b * b)) * b
+}
+
+projection(z,w)
+
+
+```
