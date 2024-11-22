@@ -115,12 +115,12 @@ All problem statement files are located in the [`problems/`](./problems/) folder
 
 ### **3. Solution Reports**
 All solution reports are located in the [`solutions/`](./solutions/) folder:
-- [`project1_solution.pdf`](./solutions/project1_solution.pdf)
-- [`project2_solution.pdf`](./solutions/project2_solution.pdf)
-- [`project3_solution.pdf`](./solutions/project3_solution.pdf)
-- [`project4_solution.pdf`](./solutions/project4_solution.pdf)
-- [`project5_solution.pdf`](./solutions/project5_solution.pdf)
-- [`final_project_solution.pdf`](./solutions/final_project_solution.pdf)
+- [`project1_solution.pdf`](./solutions/project1_solutions.pdf)
+- [`project2_solution.pdf`](./solutions/project2_solutions.pdf)
+- [`project3_solution.pdf`](./solutions/project3_solutions.pdf)
+- [`project4_solution.pdf`](./solutions/project4_solutions.pdf)
+- [`project5_solution.pdf`](./solutions/project5_solutions.pdf)
+- [`final_project_solution.pdf`](./solutions/final_project_solutions.pdf)
 
 ---
 
